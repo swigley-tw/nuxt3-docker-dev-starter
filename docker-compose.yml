@@ -6,11 +6,10 @@ services:
       dockerfile: Dockerfile
       context: .
     image: nuxt3-docker-dev-starter:latest
-    container_name: nuxt_dev
-    command: yarn dev --force
+    container_name: nuxt3-docker-dev-starter
+    command: yarn dev
     volumes:
     - .:/app
     - /app/node_modules
     ports:
       - "3000:3000"
-      - "24678:24678"

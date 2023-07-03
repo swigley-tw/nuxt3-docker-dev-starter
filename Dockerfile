@@ -26,6 +26,5 @@ ENV HOST 0.0.0.0
 ENV NUXT_HOST=0.0.0.0
 
 EXPOSE 3000
-EXPOSE 24678
 
-ENTRYPOINT [ "yarn", "dev" , "--force"]
+ENTRYPOINT [ "yarn", "dev" ]
