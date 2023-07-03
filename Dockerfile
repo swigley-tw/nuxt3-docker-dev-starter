@@ -1,4 +1,4 @@
-FROM node:lts as builder
+FROM node:18-alpine as builder
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ COPY . .
 RUN npx nuxi info # this was added
 RUN yarn build
 
-FROM node:lts-alpine
+FROM node:18-alpine
 
 WORKDIR /app
 
@@ -23,7 +23,9 @@ RUN NODE_ENV=development yarn install
 COPY --from=builder /app/.output ./.output
 
 ENV HOST 0.0.0.0
+ENV NUXT_HOST=0.0.0.0
 
 EXPOSE 3000
+EXPOSE 24678
 
-ENTRYPOINT [ "yarn", "run", "dev" ]
+ENTRYPOINT [ "yarn", "dev" , "--force"]
